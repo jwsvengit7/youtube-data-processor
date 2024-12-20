@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <style>
+        .spinner {
+          border: 4px solid #f3f3f3;
+          border-top: 4px solid #3498db;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        </style>
+  <div class="container">
+    <div id="preloader" style="display:none; text-align:center;">
+        <div class="spinner"></div>
+      </div>
+    <header>
+      <h1><%= title %></h1>
+      <p><%= message %></p>
+    </header>
+
+    <section class="form-section">
+      <form id="video-form">
+        <input type="text" id="videoId" placeholder="Enter YouTube Video ID" required>
+        <button type="submit">Get Video Info</button>
+      </form>
+    </section>
+
+ 
+           <div style="width:100%;background-color: white;display: flex;justify-content: center;padding: 10px;">
+            <div id="video-player"></div>
+           </div>
+    <section id="video-info" class="video-info">
+    
+
+      <div id="video-details">
+        <div id="video-title"></div>
+        <div id="video-description"></div>
+    
+
+        <p></p>
+        <div id="video-likes-comments">
+            <p><strong>Likes:</strong> <span id="like-count"></span></p>
+            <p><strong>Comments:</strong> <span id="comment-count"></span></p>
+          </div>
+        <button id="view-comments-btn">View Comments</button>
+      </div>
+
+      <div id="comments-pagination" class="comments-pagination">
+        <button id="show-more-btn" style="display: none;">Show More</button>
+      </div>
+      
+    </section>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>

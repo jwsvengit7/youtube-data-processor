@@ -1,0 +1,154 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1200px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  .form-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form input {
+    padding: 10px;
+    width: 70%;
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Video Information Section */
+  .video-info {
+    text-align: center;
+    background-color: #fff;
+    width: 70%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #video-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  #video-details {
+    margin-top: 20px;
+  }
+  
+  #video-likes-comments {
+    margin-top: 10px;
+  }
+  
+  #video-player iframe {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  .comments-pagination {
+    margin-top: 20px;
+  }
+  
+  .comments-pagination .pagination {
+    display: inline-flex;
+    list-style: none;
+  }
+  
+  .comments-pagination .pagination li {
+    margin: 0 5px;
+  }
+  
+  .comments-pagination .pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .comments-pagination .pagination a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add styles for the comments section */
+.comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  #show-more-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #show-more-btn:hover {
+    background-color: #0056b3;
+  }
+  
