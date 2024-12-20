@@ -5,19 +5,34 @@ document.getElementById('video-form').addEventListener('submit', async function(
     if (!videoId) return;
   
     try {
-        document.getElementById('preloader').style.display = 'block';
-      const videoData = await fetch(`/api/youtube/video-details/${videoId}`).then(res => res.json());
-      const commentsData = await fetch(`/api/youtube/video-comments/${videoId}`).then(res => res.json());
+      document.getElementById('preloader').style.display = 'block';
+      
+      const videoResponse = await fetch(`/api/youtube/video-details/${videoId}`);
+      if (!videoResponse.ok) {
+        throw new Error(`Error fetching video data: ${videoResponse.statusText}`);
+      }
+      const videoData = await videoResponse.json();
+  
+      const commentsResponse = await fetch(`/api/youtube/video-comments/${videoId}`);
+      if (!commentsResponse.ok) {
+        throw new Error(`Error fetching comments data: ${commentsResponse.statusText}`);
+      }
+      const commentsData = await commentsResponse.json();
+  
       document.getElementById('video-title').innerHTML = `<h3>${videoData.title}</h3>`;
       document.getElementById('like-count').textContent = videoData.likeCount;
       document.getElementById('comment-count').textContent = commentsData.length;
       document.getElementById('preloader').style.display = 'none';
+  
       const videoPlayer = document.getElementById('video-player');
-      videoPlayer.innerHTML = `<iframe width="360" height="215" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;`
+      videoPlayer.innerHTML = `<iframe width="360" height="215" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  
       const commentsPagination = document.getElementById('comments-pagination');
       showCommentsPagination(commentsData);
     } catch (error) {
-      console.error('Error fetching video data', error);
+      document.getElementById('preloader').style.display = 'none';
+      console.error('Error:', error.message);
+      alert('There was an error loading the video or comments. Please try again later.');
     }
   });
   
