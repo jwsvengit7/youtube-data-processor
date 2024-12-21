@@ -10,7 +10,7 @@ class YouTubeService {
     this.baseUrl = 'https://www.googleapis.com/youtube/v3';
   }
 
-  async getVideoInfo(videoId: string) {
+  public  async getVideoInfo(videoId: string) {
     try {
       const url = `${this.baseUrl}/videos?part=snippet,statistics&id=${videoId}&key=${this.apiKey}`;
       const { data, headers } = await axios.get(url);
@@ -34,7 +34,7 @@ class YouTubeService {
     }
   }
 
-  async getVideoComments(videoId: string) {
+  public  async getVideoComments(videoId: string) {
     try {
       let url = `${this.baseUrl}/commentThreads?part=snippet&videoId=${videoId}&key=${this.apiKey}` || null;
       let allComments: any[] = [];

@@ -13,7 +13,7 @@ class Youtube {
     this.youTubeService = new YouTubeService(process.env.YOUTUBE_API_KEY as string);
   }
 
-  getVideoDetails = async (req: Request, res: Response) => {
+ public getVideoDetails = async (req: Request, res: Response) => {
     try {
       const { videoId } = req.params;
       const videoData = await this.youTubeService.getVideoInfo(videoId);
@@ -33,7 +33,7 @@ class Youtube {
     }
   };
 
-  getVideoComments = async (req: Request, res: Response) => {
+  public getVideoComments = async (req: Request, res: Response) => {
     try {
       const { videoId } = req.params;
       const comments = await this.youTubeService.getVideoComments(videoId);
